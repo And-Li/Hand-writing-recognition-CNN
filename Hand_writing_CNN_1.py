@@ -23,9 +23,13 @@ print()
 print('y_train:', y_train.shape)
 print('y_test:', y_test.shape)
 
+x_train = x_train.reshape(128, -1)
+print(x_train.shape)
+
 
 model = Sequential()
-model.add(Dense(100, input_shape=x_train.shape, activation='relu'))
+model.add(Dense(100, input_dim=x_train.shape[1],activation='relu'))
+
 model.add(Dense(1000, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 
